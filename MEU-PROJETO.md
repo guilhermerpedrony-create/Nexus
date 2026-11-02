@@ -23,6 +23,9 @@ o microfone permite chamar Nexus e depois fazer a pergunta. As respostas sao esc
 Os pedidos atualmente executados estao listados no README. Modelos maiores ou menores
 podem ser escolhidos em `pestinha/assistant.py` conforme o hardware do proximo PC.
 
+O perfil atual usa CPU com quatro threads, contexto de 2048 tokens e mapeamento
+do modelo em memoria, para reduzir o consumo enquanto outros programas estao abertos.
+
 Abra o Codex e envie:
 
 > Baixe https://github.com/guilhermerpedrony-create/Nexus, leia MEU-PROJETO.md e configure o Nexus neste PC. Quero continuar desenvolvendo minha versao. Ao concluir as melhorias que eu solicitar, salve com commit e push neste repositorio.

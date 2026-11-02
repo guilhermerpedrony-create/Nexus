@@ -140,7 +140,10 @@ class LocalChat:
         try:
             result = self._json("/api/chat", {
                 "model": self.model, "messages": messages, "stream": False,
-                "keep_alive": "5m", "options": {"num_ctx": 4096, "num_predict": 256, "temperature": 0.6},
+                "keep_alive": "2m", "options": {
+                    "num_ctx": 2048, "num_batch": 64, "num_thread": 4, "num_gpu": 0,
+                    "use_mmap": True, "num_predict": 256, "temperature": 0.6,
+                },
             })
         except urllib.error.HTTPError as error:
             if error.code == 404:

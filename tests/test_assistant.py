@@ -47,6 +47,9 @@ def test_conversa_mantem_contexto_so_em_memoria(tmp_path):
     client._json = Mock(return_value={"message": {"content": "Brasília."}})
     assert client.ask("Qual é a capital do Brasil?") == "Brasília."
     body = client._json.call_args.args[1]
+    assert body["options"]["use_mmap"] is True
+    assert body["options"]["num_ctx"] == 2048
+    assert body["options"]["num_thread"] == 4
     assert body["messages"][-1]["content"].startswith("Qual é a capital do Brasil?")
     assert client.history[-1] == {"role": "assistant", "content": "Brasília."}
     assert list(tmp_path.iterdir()) == []
