@@ -72,7 +72,7 @@ try {
     }
     if ($EnableVoice) {
         $settings | Add-Member -NotePropertyName ouvir_nome -NotePropertyValue $true -Force
-        $settings | Add-Member -NotePropertyName resposta_voz -NotePropertyValue $true -Force
+        $settings | Add-Member -NotePropertyName resposta_voz -NotePropertyValue $false -Force
     }
     [IO.File]::WriteAllText($permissionFile, ($settings | ConvertTo-Json), (New-Object Text.UTF8Encoding($false)))
     $exe = Join-Path $InstallDirectory 'Nexus.exe'

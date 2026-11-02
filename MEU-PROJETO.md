@@ -12,7 +12,8 @@ Para a versao Nexus com chamada por voz, use `setup/Instalar-Nexus.ps1` com Pyth
 baixa o modelo local, compila o codigo atual e cria o atalho Nexus. A chave
 `-EnableVoice` ativa a escuta pelo microfone apos a instalacao. Sem essa chave,
 a configuracao existente e preservada; novas instalacoes comecam sem escuta.
-O audio nao e gravado nem enviado. A resposta inicial e "Oi! Estou aqui.".
+O audio nao e gravado nem enviado. A resposta inicial e um balao escrito:
+"Oi! Estou aqui.". A fala fica desligada, inclusive com `-EnableVoice`.
 
 Abra o Codex e envie:
 

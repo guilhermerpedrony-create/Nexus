@@ -50,7 +50,7 @@ DEFAULT_PERMISSIONS = {
     "bolinha": True,           # a bolinha para ele brincar
     "fogos": True,             # fogo de artifício quando ele fica feliz de verdade (rede)
     "ouvir_nome": False,       # microfone local opcional: reconhecer a chamada Nexus
-    "resposta_voz": True,      # falar uma resposta curta ao ouvir o nome
+    "resposta_voz": False,     # resposta escrita por padrão; fala só se ativada depois
 }
 
 # (chave, rótulo, descrição) na ordem da tela inicial

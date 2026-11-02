@@ -138,7 +138,7 @@ class VoiceReply(QObject):
         self.bubble.move(max(screen.left(), min(x, screen.right() - self.bubble.width())),
                          max(screen.top(), min(y, screen.bottom() - self.bubble.height())))
 
-    def respond(self, aloud=True):
+    def respond(self, aloud=False):
         self.bubble.show()
         self._position()
         self.hide_timer.start(4000)

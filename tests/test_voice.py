@@ -50,7 +50,7 @@ def test_balao_para_ao_desativar_sem_voz_do_sistema():
     from PySide6.QtWidgets import QWidget
     pet = QWidget()
     reply = VoiceReply(pet)
-    reply.respond(aloud=False)
+    reply.respond()
     assert reply.bubble.isVisible()
     assert reply.speaker is None
     reply.stop()

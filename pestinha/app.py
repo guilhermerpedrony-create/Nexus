@@ -256,7 +256,7 @@ class PestinhaApp(SessaoMixin, InteracaoMixin, QObject):
             return
         self.menu_poke()
         self.behavior.look_at(*cursor_pos(), time.monotonic())
-        self.voice_reply.respond(self.perms.get("resposta_voz", True))
+        self.voice_reply.respond(self.perms.get("resposta_voz", False))
 
     def on_voice_error(self, message):
         log(f"[voz] {message}")

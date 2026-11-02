@@ -6,8 +6,8 @@ preservar a memória existente.
 
 ## Chamar pelo nome
 
-Ao ouvir **“Nexus”**, ele reage, olha para o cursor, mostra **“Oi! Estou aqui.”** e responde
-com a voz instalada no computador. É uma chamada com resposta curta; ainda não é um chat
+Ao ouvir **“Nexus”**, ele reage, olha para o cursor e mostra **“Oi! Estou aqui.”**
+em um balão escrito, sem falar. É uma chamada com resposta curta; ainda não é um chat
 com respostas livres. A rede neural original continua controlando as emoções e o comportamento.
 
 1. Instale `requirements.txt` e `requirements-voice.txt` no ambiente Python.
@@ -17,7 +17,7 @@ com respostas livres. A rede neural original continua controlando as emoções e
 A escuta é local, usa o microfone padrão e não salva nem envia áudio. O menu da bandeja mostra
 o estado do microfone. Pausar, esconder e o atalho de pânico também param a escuta.
 O modelo reconhece o nome com pronúncia próxima de “néksus”; ruído, distância e pronúncia
-podem afetar a detecção. A resposta falada depende da voz disponível no sistema.
+podem afetar a detecção. A fala é opcional, desligada por padrão e depende da voz disponível no sistema.
 
 Para instalar esta versão no Windows a partir do código, use `setup/Instalar-Nexus.ps1`.
 Veja [MEU-PROJETO.md](MEU-PROJETO.md) para continuar o desenvolvimento em outros PCs.
