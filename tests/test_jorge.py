@@ -114,7 +114,7 @@ def test_jorge_no_app(tmp_path, monkeypatch):
         timer.stop()
     jorge = frases("jorge")
     assert app.nome == "Jorge" and app.pet_paths == paths.pet("jorge")
-    assert app.tray.icon.toolTip().startswith("Pestinha · Jorge")
+    assert app.tray.icon.toolTip().startswith("Nexus · Jorge")
     assert app.revolucao.sprite is not None                     # atira panfletos
     assert app.mischief.notes.pick() in jorge
     assert set(app.castigo.cartazes) <= jorge and set(app.castigo.xingamentos) <= jorge

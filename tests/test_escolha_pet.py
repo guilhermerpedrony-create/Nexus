@@ -111,7 +111,7 @@ def test_nome_do_pet_e_do_programa_nos_lugares_certos(tmp_path, monkeypatch):
     paths = dois_pets(tmp_path)
     SettingsStore(paths).update(dict(config.DEFAULT_PERMISSIONS, pet="teste"))
     app = abrir(paths, monkeypatch)
-    assert app.tray.icon.toolTip().startswith("Pestinha · Teste")
+    assert app.tray.icon.toolTip().startswith("Nexus · Teste")
     from pestinha.ui.monitor import NeuralMonitor
     from pestinha.ui.panel import StrikePanel
     from pestinha.world.notebook import Notebook
@@ -119,7 +119,7 @@ def test_nome_do_pet_e_do_programa_nos_lugares_certos(tmp_path, monkeypatch):
     assert NeuralMonitor(app, (0, 0)).windowTitle().startswith("Teste ·")
     assert StrikePanel(app, (0, 0)).windowTitle().startswith("Teste ·")
     d = dialogo(paths, app.perms)
-    assert d.windowTitle() == "Pestinha" and d.active_box.text() == "Pestinha ligado"
+    assert d.windowTitle() == "Nexus" and d.active_box.text() == "Nexus ligado"
 
 
 def test_apresentacao_usa_o_nome_do_pet():
@@ -129,7 +129,7 @@ def test_apresentacao_usa_o_nome_do_pet():
     textos = [o.stack.widget(i).text() for i in range(o.stack.count())]
     assert any("eu sou o Teste" in t for t in textos)
     assert not any("Bryan" in t for t in textos)
-    assert o.windowTitle().startswith("Pestinha")
+    assert o.windowTitle().startswith("Nexus")
 
 
 def test_nenhum_texto_visivel_chama_o_pet_de_bryan_no_codigo():

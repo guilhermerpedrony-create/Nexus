@@ -1,15 +1,22 @@
-# Meu Pestinha
+# Meu Nexus
 
 Este e o fork pessoal para desenvolver e guardar melhorias:
-https://github.com/guilhermerpedrony-create/pestinha
+https://github.com/guilhermerpedrony-create/Nexus
 
 O projeto original continua em https://github.com/mille-okws/pestinha.
 
 ## Continuar em outro PC
 
+Para a versao Nexus com chamada por voz, use `setup/Instalar-Nexus.ps1` com Python
+3.11 ou superior de 64 bits. O script instala dependencias num ambiente isolado,
+baixa o modelo local, compila o codigo atual e cria o atalho Nexus. A chave
+`-EnableVoice` ativa a escuta pelo microfone apos a instalacao. Sem essa chave,
+a configuracao existente e preservada; novas instalacoes comecam sem escuta.
+O audio nao e gravado nem enviado. A resposta inicial e "Oi! Estou aqui.".
+
 Abra o Codex e envie:
 
-> Baixe https://github.com/guilhermerpedrony-create/pestinha, leia MEU-PROJETO.md e configure o Pestinha neste PC. Quero continuar desenvolvendo minha versao. Ao concluir as melhorias que eu solicitar, salve com commit e push neste repositorio.
+> Baixe https://github.com/guilhermerpedrony-create/Nexus, leia MEU-PROJETO.md e configure o Nexus neste PC. Quero continuar desenvolvendo minha versao. Ao concluir as melhorias que eu solicitar, salve com commit e push neste repositorio.
 
 Para instalar a distribuicao Windows original verificada, execute `setup/Instalar-Pestinha.cmd`. Precisa de Windows 10/11 de 64 bits e internet. Instala em `%LOCALAPPDATA%\Programs\Pestinha`, preserva a pasta `memory/` existente e cria atalhos. O perfil inicial usa Bryan e as opcoes padrao do projeto, com modo teste e travessuras desligados.
 

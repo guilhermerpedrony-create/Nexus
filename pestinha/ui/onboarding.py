@@ -36,7 +36,9 @@ PAGES = [
     ("O que eu vejo (e o que não vejo)",
      "Eu vejo o nome do programa em primeiro plano, o tempo sem usar o teclado ou o mouse, "
      "e a posição das janelas para pousar nelas.\n\nNunca leio o conteúdo de nenhuma janela, "
-     "página, documento ou conversa. Os detalhes estão em PRIVACIDADE.md."),
+     "página, documento ou conversa. Se você ligar 'Ouvir quando eu chamar Nexus', "
+     "também uso o microfone localmente para reconhecer meu nome, sem gravar nem enviar áudio. "
+     "Os detalhes estão em PRIVACIDADE.md."),
     ("Agora você escolhe",
      "Na próxima tela você decide o que eu posso fazer: travessuras, bolinha, carinho e "
      "mais. Tudo pode ser mudado depois, pelo menu da bandeja ou pelo botão direito em mim.\n\n"

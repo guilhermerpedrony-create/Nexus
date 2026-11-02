@@ -49,10 +49,18 @@ DEFAULT_PERMISSIONS = {
     "mostrar_emocao": False,   # só vale com modo_teste ligado
     "bolinha": True,           # a bolinha para ele brincar
     "fogos": True,             # fogo de artifício quando ele fica feliz de verdade (rede)
+    "ouvir_nome": False,       # microfone local opcional: reconhecer a chamada Nexus
+    "resposta_voz": True,      # falar uma resposta curta ao ouvir o nome
 }
 
 # (chave, rótulo, descrição) na ordem da tela inicial
 PERMISSION_GROUPS = [
+    ("Voz", [
+        ("ouvir_nome", "Ouvir quando eu chamar Nexus",
+         "Usa o microfone padrão deste PC, com reconhecimento local. Não grava nem envia áudio. "
+         "A escuta para ao pausar, esconder ou desligar o pet."),
+        ("resposta_voz", "Responder em voz alta", "Fala uma frase curta ao ouvir Nexus; também mostra a resposta na tela."),
+    ]),
     ("Travessuras", [
         ("travessuras", "Travessuras", "Interruptor geral: sem ele, nada de memes, fotos ou bilhetes."),
         ("memes", "Trazer memes", "Imagens de pets/<pet>/memes/<emoção>/."),
@@ -205,7 +213,7 @@ def profile(perms):
 # PETS
 # ============================================================
 
-APP_NOME = "Pestinha"             # o programa; cada personagem tem o próprio nome (pets/<pet>.json)
+APP_NOME = "Nexus"                # mantém os IDs e caminhos antigos para preservar a memória
 PET_PADRAO = "bryan"
 
 DEFAULT_PET = {

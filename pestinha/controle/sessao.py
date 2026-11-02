@@ -80,6 +80,13 @@ class SessaoMixin:
         if not visible or not self.perms["fogos"]:
             self.festa.fogos.recolher()
         self.tray.set_state(self.paused, self.hidden, self.perms["modo_teste"])
+        voice = getattr(self, "voice", None)
+        if voice is not None:
+            if visible and not self._congelado() and self.perms.get("ouvir_nome", False):
+                voice.start()
+            else:
+                voice.stop()
+                self.voice_reply.stop()
 
     def open_settings(self):
         """Abre a tela de configurações (ou traz para frente se já estiver aberta)."""
@@ -189,6 +196,9 @@ class SessaoMixin:
 
     def quit(self):
         """Salva tudo e fecha o programa."""
+        if getattr(self, "voice", None) is not None:
+            self.voice.close()
+            self.voice_reply.close()
         self.save()
         self.mesa.fechar()
         self.festa.fechar()

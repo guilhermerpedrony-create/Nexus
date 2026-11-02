@@ -1,6 +1,6 @@
 # Orientacoes para trabalhar neste fork
 
-- Repositorio do usuario: https://github.com/guilhermerpedrony-create/pestinha.
+- Repositorio do usuario: https://github.com/guilhermerpedrony-create/Nexus.
 - Leia MEU-PROJETO.md antes de instalar ou configurar o projeto em outro computador.
 - O usuario quer continuar desenvolvendo este fork em varios PCs. Ao concluir melhorias solicitadas, valide as alteracoes e salve-as com commit e push no repositorio do usuario, salvo orientacao posterior em contrario. Nao inclua alteracoes alheias ao pedido no commit.
 - Mantenha origin no fork do usuario e upstream no projeto original mille-okws/pestinha. Nao envie alteracoes ao original sem pedido explicito.

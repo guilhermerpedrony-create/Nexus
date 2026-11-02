@@ -1,0 +1,3 @@
+# Reconhecimento local opcional. O app funciona sem estas dependencias.
+vosk==0.3.45
+sounddevice==0.5.6

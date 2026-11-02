@@ -72,6 +72,7 @@ from .sense.timeline import TimelineRecorder
 from .ui.float_manager import FloatManager
 from .ui.ui import PanicHotkey, Tray
 from .world.mischief import MischiefEngine
+from .voice import VoiceListener, VoiceReply
 
 MAX_DT = 2.0          # s: um atraso maior que isso (suspensão) não vira tempo de rede
 
@@ -204,6 +205,12 @@ class PestinhaApp(SessaoMixin, InteracaoMixin, QObject):
         self._pausado_em = None         # quando a pausa começou (para descontar do tempo dos episódios)
         self._ultimo_think = None       # quando a rede foi integrada pela última vez
         self.hidden = False
+        self.voice = VoiceListener(self.paths.root, self)
+        self.voice_reply = VoiceReply(self.pet, self)
+        self.voice.called.connect(self.on_voice_call)
+        self.voice.status.connect(self.tray.set_voice_status)
+        self.voice.status.connect(lambda status: log(f"[voz] microfone: {status}"))
+        self.voice.failed.connect(self.on_voice_error)
 
         # ----- relógios -----
         self.last_frame = time.monotonic()
@@ -242,6 +249,18 @@ class PestinhaApp(SessaoMixin, InteracaoMixin, QObject):
     def asleep(self):
         """Diz se o pet está dormindo."""
         return self.sleep.asleep
+
+    def on_voice_call(self):
+        """A chamada vira interação e olhar; a resposta é curta, sem modelo de chat."""
+        if self._congelado() or self.hidden or not self.pet.isVisible() or not self.perms.get("ouvir_nome"):
+            return
+        self.menu_poke()
+        self.behavior.look_at(*cursor_pos(), time.monotonic())
+        self.voice_reply.respond(self.perms.get("resposta_voz", True))
+
+    def on_voice_error(self, message):
+        log(f"[voz] {message}")
+        self.tray.icon.showMessage(config.APP_NOME, message, QSystemTrayIcon.Warning, 8000)
 
     # ---------------- geometria ----------------
 

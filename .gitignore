@@ -6,6 +6,7 @@ memory/
 venv/
 .env
 .env.*
+models/
 
 # Gerados pelo Python, pytest e PyInstaller
 __pycache__/

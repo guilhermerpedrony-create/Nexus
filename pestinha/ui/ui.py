@@ -296,6 +296,8 @@ class Tray(QObject):
         self.icon.setToolTip(self.titulo)
         menu = QMenu()
         self.actions = {}
+        self.voice_status = menu.addAction("Microfone: desligado")
+        self.voice_status.setEnabled(False)
         for key, text, signal in [
             ("settings", "Configurações...", self.open_settings),
             ("monitor", "Monitor neural", self.open_monitor),
@@ -325,6 +327,9 @@ class Tray(QObject):
         self.actions["pause"].setText("Continuar" if paused else "Pausar")
         self.actions["hide"].setText("Mostrar" if hidden else "Esconder")
         self.icon.setToolTip(self.titulo + ("  [MODO TESTE]" if test_mode else ""))
+
+    def set_voice_status(self, status):
+        self.voice_status.setText(f"Microfone: {status}")
 
 
 # ============================================================

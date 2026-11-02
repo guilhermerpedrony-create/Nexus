@@ -1,6 +1,21 @@
-# Privacidade do Pestinha
+# Privacidade do Nexus
 
 O Pestinha roda só no seu computador. Ele não envia nada para a internet.
+
+## Chamada pelo microfone
+
+A opção **Ouvir quando eu chamar Nexus** é desligada por padrão. Quando ativada,
+o microfone padrão é processado continuamente em memória por um modelo Vosk local,
+para detectar o nome Nexus. O áudio e o texto reconhecido não são gravados,
+incluídos no histórico ou enviados à internet. Não há identificação de quem falou;
+outras pessoas, vídeos e áudio dos alto-falantes também podem ativar a chamada.
+
+A escuta para ao desativar a opção, pausar, esconder, usar o pânico ou fechar o aplicativo.
+Também para enquanto o pet estiver oculto por tela cheia. O menu da bandeja mostra
+o estado do microfone. A resposta falada usa a voz instalada no sistema.
+
+O modelo é baixado uma vez pelo comando explícito `setup/Preparar-Voz.py`,
+do site do Vosk. O aplicativo não baixa nada automaticamente durante a escuta.
 
 ## O que ele lê
 
