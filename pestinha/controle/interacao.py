@@ -118,6 +118,7 @@ class InteracaoMixin:
 
         item("Cutucar", self.menu_poke, perms["cutucar"])
         item("Dar carinho", self.menu_caress, perms["carinho"])
+        item("Conversar com Nexus...", self.assistant.open)
         menu.addSeparator()
         item("Jogar a bolinha perto dele", self.menu_place_ball, perms["bolinha"])
         item("Guardar a bolinha", self.menu_store_ball, perms["bolinha"] and not self.ball_stored)

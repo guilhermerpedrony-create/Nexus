@@ -26,6 +26,7 @@ from pestinha.ui.ui import SettingsDialog, face_icon
 def main():
     parser = argparse.ArgumentParser(description="Pestinha")
     parser.add_argument("--direto", action="store_true", help="pula a tela inicial")
+    parser.add_argument("--chat", action="store_true", help="abre a janela de conversa")
     parser.add_argument("--sair-em", type=float, default=0.0, help="fecha sozinho após N segundos (teste)")
     args = parser.parse_args()
 
@@ -56,6 +57,8 @@ def main():
         store.save()                                # grava já: a próxima vez não mostra o passo a passo
 
     pet_app = PestinhaApp(store, paths)
+    if args.chat:
+        QTimer.singleShot(0, pet_app.assistant.open)
     if args.sair_em > 0:
         QTimer.singleShot(int(args.sair_em * 1000), pet_app.quit)
     return app.exec()

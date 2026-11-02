@@ -4,6 +4,7 @@ param(
     [string]$EnvironmentDirectory = (Join-Path ([Environment]::GetFolderPath('MyDocuments')) 'Codex\runtimes\nexus'),
     [string]$InstallDirectory = (Join-Path $env:LOCALAPPDATA 'Programs\Nexus'),
     [switch]$EnableVoice,
+    [switch]$PrepareChat,
     [switch]$NoLaunch
 )
 $ErrorActionPreference = 'Stop'
@@ -72,7 +73,6 @@ try {
     }
     if ($EnableVoice) {
         $settings | Add-Member -NotePropertyName ouvir_nome -NotePropertyValue $true -Force
-        $settings | Add-Member -NotePropertyName resposta_voz -NotePropertyValue $false -Force
     }
     [IO.File]::WriteAllText($permissionFile, ($settings | ConvertTo-Json), (New-Object Text.UTF8Encoding($false)))
     $exe = Join-Path $InstallDirectory 'Nexus.exe'
@@ -86,10 +86,17 @@ try {
             $shortcut.WorkingDirectory = $InstallDirectory
             $shortcut.IconLocation = "$exe,0"
             $shortcut.Save()
+            $legacy = Join-Path $location 'Pestinha.lnk'
+            if (Test-Path -LiteralPath $legacy) {
+                $legacyShortcut = $shell.CreateShortcut($legacy)
+                $legacyTarget = Join-Path $env:LOCALAPPDATA 'Programs\Pestinha\Pestinha.exe'
+                if ($legacyShortcut.TargetPath -eq $legacyTarget) { Remove-Item -LiteralPath $legacy }
+            }
         }
     }
     Write-Host "Nexus instalado em $InstallDirectory"
-    if (-not $NoLaunch) { Start-Process -FilePath $exe -ArgumentList '--direto' -WorkingDirectory $InstallDirectory -WindowStyle Hidden }
+    if ($PrepareChat) { & (Join-Path $PSScriptRoot 'Preparar-Conversa.ps1') -InstallDirectory $InstallDirectory }
+    if (-not $NoLaunch) { Start-Process -FilePath $exe -ArgumentList '--direto' -WorkingDirectory $InstallDirectory -WindowStyle Normal }
 } finally {
     Pop-Location
 }

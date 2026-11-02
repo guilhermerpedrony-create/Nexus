@@ -7,3 +7,5 @@
 - Nunca versione memory/, credenciais, arquivos .env, ambientes virtuais ou historico pessoal. Nao publique dados locais do pet.
 - O executavel distribuido e o codigo Python sao independentes: editar o codigo nao atualiza o executavel. Explique qual versao esta sendo instalada e reconstrua o executavel quando for necessario distribuir melhorias.
 - Preserve a memoria existente em reinstalacoes e atualizacoes. Feche o aplicativo antes de substituir arquivos ou copiar o estado.
+- O usuario quer apenas um atalho Nexus na Area de Trabalho. Atualize o mesmo atalho; remova atalhos antigos deste projeto somente depois de conferir o destino. Nao deixe atalhos duplicados Pestinha/Nexus.
+- As respostas devem ser escritas. O microfone serve de entrada; nao ative resposta falada sem novo pedido.

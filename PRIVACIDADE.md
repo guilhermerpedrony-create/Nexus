@@ -6,16 +6,30 @@ O Pestinha roda só no seu computador. Ele não envia nada para a internet.
 
 A opção **Ouvir quando eu chamar Nexus** é desligada por padrão. Quando ativada,
 o microfone padrão é processado continuamente em memória por um modelo Vosk local,
-para detectar o nome Nexus. O áudio e o texto reconhecido não são gravados,
-incluídos no histórico ou enviados à internet. Não há identificação de quem falou;
+para detectar o nome Nexus. Depois da chamada, um modelo em português transcreve
+a pergunta durante uma janela de até 15 segundos. O áudio não é gravado nem enviado à internet.
+A pergunta e a resposta aparecem na janela de conversa e ficam somente na memória da sessão,
+com contexto limitado. Não há identificação de quem falou;
 outras pessoas, vídeos e áudio dos alto-falantes também podem ativar a chamada.
 
 A escuta para ao desativar a opção, pausar, esconder, usar o pânico ou fechar o aplicativo.
 Também para enquanto o pet estiver oculto por tela cheia. O menu da bandeja mostra
-o estado do microfone. A resposta falada usa a voz instalada no sistema.
+o estado do microfone. As respostas são somente escritas.
 
 O modelo é baixado uma vez pelo comando explícito `setup/Preparar-Voz.py`,
 do site do Vosk. O aplicativo não baixa nada automaticamente durante a escuta.
+
+## Conversa e tarefas
+
+As perguntas são enviadas apenas ao servidor local Ollama em `127.0.0.1:11434`,
+usando o modelo Qwen instalado no PC, sem API de nuvem. O Nexus não envia tela,
+rotina, arquivos nem histórico de programas ao modelo. O contexto da conversa fica
+somente na memória da sessão. O Ollama é iniciado em modo local, com nuvem desligada.
+
+Pedidos explícitos de anotações salvam o texto em `memory/notes/`. Abrir o navegador
+acessa a página inicial configurada no comando (Google), usando o navegador padrão.
+O modelo de conversa e o runtime são baixados explicitamente na preparação, dos
+servidores oficiais do Ollama. Esses downloads não incluem as suas conversas.
 
 ## O que ele lê
 

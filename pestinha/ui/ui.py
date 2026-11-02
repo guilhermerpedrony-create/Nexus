@@ -279,6 +279,7 @@ class SettingsDialog(QDialog):
 class Tray(QObject):
     """Ícone da bandeja do sistema, com o menu de controle do pet."""
     open_settings = Signal()
+    open_chat = Signal()
     open_monitor = Signal()
     open_panel = Signal()
     toggle_floating = Signal()
@@ -299,6 +300,7 @@ class Tray(QObject):
         self.voice_status = menu.addAction("Microfone: desligado")
         self.voice_status.setEnabled(False)
         for key, text, signal in [
+            ("chat", "Conversar com Nexus...", self.open_chat),
             ("settings", "Configurações...", self.open_settings),
             ("monitor", "Monitor neural", self.open_monitor),
             ("panel", "Painel de protesto", self.open_panel),

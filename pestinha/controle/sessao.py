@@ -196,6 +196,8 @@ class SessaoMixin:
 
     def quit(self):
         """Salva tudo e fecha o programa."""
+        if getattr(self, "assistant", None) is not None:
+            self.assistant.close()
         if getattr(self, "voice", None) is not None:
             self.voice.close()
             self.voice_reply.close()

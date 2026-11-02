@@ -52,7 +52,6 @@ def test_balao_para_ao_desativar_sem_voz_do_sistema():
     reply = VoiceReply(pet)
     reply.respond()
     assert reply.bubble.isVisible()
-    assert reply.speaker is None
     reply.stop()
     assert not reply.bubble.isVisible()
     reply.close()

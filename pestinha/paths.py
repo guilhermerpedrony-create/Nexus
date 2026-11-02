@@ -200,6 +200,11 @@ class Paths:
         return self.memory / "permissions.json"
 
     @property
+    def notes(self):
+        """Anotações guardadas por pedido explícito do usuário."""
+        return self.memory / "notes"
+
+    @property
     def timeline(self):
         """Sua rotina, um minuto por linha (só com 'Aprender minha rotina' ligado)."""
         return self.memory / "timeline.csv"

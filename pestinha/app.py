@@ -73,6 +73,7 @@ from .ui.float_manager import FloatManager
 from .ui.ui import PanicHotkey, Tray
 from .world.mischief import MischiefEngine
 from .voice import VoiceListener, VoiceReply
+from .assistant_controller import AssistantController
 
 MAX_DT = 2.0          # s: um atraso maior que isso (suspensão) não vira tempo de rede
 
@@ -207,6 +208,9 @@ class PestinhaApp(SessaoMixin, InteracaoMixin, QObject):
         self.hidden = False
         self.voice = VoiceListener(self.paths.root, self)
         self.voice_reply = VoiceReply(self.pet, self)
+        self.assistant = AssistantController(self)
+        self.tray.open_chat.connect(self.assistant.open)
+        self.voice.question.connect(self.assistant.ask)
         self.voice.called.connect(self.on_voice_call)
         self.voice.status.connect(self.tray.set_voice_status)
         self.voice.status.connect(lambda status: log(f"[voz] microfone: {status}"))
@@ -256,7 +260,7 @@ class PestinhaApp(SessaoMixin, InteracaoMixin, QObject):
             return
         self.menu_poke()
         self.behavior.look_at(*cursor_pos(), time.monotonic())
-        self.voice_reply.respond(self.perms.get("resposta_voz", False))
+        self.voice_reply.show_text("Pode perguntar. Estou ouvindo.", 12000)
 
     def on_voice_error(self, message):
         log(f"[voz] {message}")

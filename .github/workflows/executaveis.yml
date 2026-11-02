@@ -27,6 +27,10 @@ jobs:
           python -m PyInstaller --noconfirm --onefile $EXTRA --name Nexus \
             --collect-all vosk --collect-all sounddevice \
             --distpath dist --workpath build/work --specpath build main.py
+      - name: Verificar abertura do executável empacotado
+        env:
+          QT_QPA_PLATFORM: offscreen
+        run: python -c "import pathlib, subprocess, sys; exe = pathlib.Path('dist/Nexus.exe' if sys.platform == 'win32' else 'dist/Nexus').resolve(); subprocess.run([str(exe), '--direto', '--sair-em', '3'], check=True, timeout=30)"
       - name: Montar a pasta de entrega (executável + assets + pets)
         shell: bash
         run: |

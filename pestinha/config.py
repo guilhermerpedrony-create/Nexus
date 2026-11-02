@@ -50,7 +50,6 @@ DEFAULT_PERMISSIONS = {
     "bolinha": True,           # a bolinha para ele brincar
     "fogos": True,             # fogo de artifício quando ele fica feliz de verdade (rede)
     "ouvir_nome": False,       # microfone local opcional: reconhecer a chamada Nexus
-    "resposta_voz": False,     # resposta escrita por padrão; fala só se ativada depois
 }
 
 # (chave, rótulo, descrição) na ordem da tela inicial
@@ -59,7 +58,6 @@ PERMISSION_GROUPS = [
         ("ouvir_nome", "Ouvir quando eu chamar Nexus",
          "Usa o microfone padrão deste PC, com reconhecimento local. Não grava nem envia áudio. "
          "A escuta para ao pausar, esconder ou desligar o pet."),
-        ("resposta_voz", "Responder em voz alta", "Fala uma frase curta ao ouvir Nexus; também mostra a resposta na tela."),
     ]),
     ("Travessuras", [
         ("travessuras", "Travessuras", "Interruptor geral: sem ele, nada de memes, fotos ou bilhetes."),

@@ -6,18 +6,34 @@ preservar a memória existente.
 
 ## Chamar pelo nome
 
-Ao ouvir **“Nexus”**, ele reage, olha para o cursor e mostra **“Oi! Estou aqui.”**
-em um balão escrito, sem falar. É uma chamada com resposta curta; ainda não é um chat
-com respostas livres. A rede neural original continua controlando as emoções e o comportamento.
+Ao ouvir **“Nexus”**, ele reage, olha para o cursor e escuta sua pergunta em português.
+A resposta aparece por escrito, em um balão e na janela de conversa. Também é possível
+escrever pelo menu **Conversar com Nexus...**. A rede neural original continua controlando
+as emoções e o comportamento; as respostas livres usam um modelo de linguagem local.
 
 1. Instale `requirements.txt` e `requirements-voice.txt` no ambiente Python.
 2. Execute `python setup/Preparar-Voz.py` uma vez para baixar o modelo de voz.
 3. Abra o programa e ative **Ouvir quando eu chamar Nexus** nas Configurações.
+4. Execute `setup/Preparar-Conversa.ps1` para preparar Ollama e o modelo Qwen local.
 
-A escuta é local, usa o microfone padrão e não salva nem envia áudio. O menu da bandeja mostra
+Depois de chamar, diga a pergunta em até 15 segundos. Espere a resposta antes de chamar novamente.
+A conversa mantém o contexto recente somente na memória da sessão. Perguntas gerais vão para
+o modelo local Qwen2.5 3B Instruct; ele não pesquisa a internet e pode errar.
+
+Pedidos disponíveis nesta versão:
+
+- “Abra a calculadora”, “abra o bloco de notas”, “abra o navegador” e “abra documentos”.
+- “Anota: comprar café amanhã” guarda uma anotação em `memory/notes/`.
+- “Durma”, “brinque”, “trabalhe” e “guarde a bolinha” interagem com o pet.
+
+Esses pedidos são executados pelo próprio aplicativo. O texto gerado pelo modelo nunca é
+executado como comando do computador. Outras tarefas podem ser explicadas na conversa,
+mas ainda não são executadas pelo Nexus.
+
+A escuta é local, usa o microfone padrão e não salva nem envia áudio à internet. O menu da bandeja mostra
 o estado do microfone. Pausar, esconder e o atalho de pânico também param a escuta.
-O modelo reconhece o nome com pronúncia próxima de “néksus”; ruído, distância e pronúncia
-podem afetar a detecção. A fala é opcional, desligada por padrão e depende da voz disponível no sistema.
+Os modelos reconhecem o nome com pronúncia próxima de “néksus” e a pergunta em português; ruído, distância e pronúncia
+podem afetar a detecção. As respostas são somente escritas; o Nexus não fala.
 
 Para instalar esta versão no Windows a partir do código, use `setup/Instalar-Nexus.ps1`.
 Veja [MEU-PROJETO.md](MEU-PROJETO.md) para continuar o desenvolvimento em outros PCs.
