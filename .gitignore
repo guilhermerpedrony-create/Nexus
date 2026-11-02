@@ -1,6 +1,12 @@
 # Dados do usuário (aprendizado, histórico, logs): nunca vão para o repositório
 memory/
 
+# Ambiente de desenvolvimento local e credenciais
+.venv/
+venv/
+.env
+.env.*
+
 # Gerados pelo Python, pytest e PyInstaller
 __pycache__/
 *.pyc
